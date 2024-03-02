@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import data from '../../../db/visa'
+import data from '../../../db/database'
 import Related from '../../components/Related.astro';
+import Ad1 from '../../components/ads/Ad1.astro';
+import Ad2 from '../../components/ads/Ad2.astro';
 import ADX from '../../components/ADX.astro';
 
 const id = Astro.url.pathname.slice(1)
@@ -12,10 +14,8 @@ const filteredData = data.filter(q=> q.route != id)
 ---
 <Layout title={x.title}, description={x.description} >
 	<>
-	<h1 style={{ marginTop: "0 !important" }} class=" text-lg font-medium md:text-3xl">
-{   x.title
-}      </h1>
-<ADX id="ad1"/>
+	<h1 style={{ marginTop: "0 !important" }} class=" text-lg font-medium md:text-3xl">{x.title}</h1>
+      <ADX id="ad1"/>
       <p class="intro">
        {x.description}
         <br />
@@ -26,5 +26,3 @@ const filteredData = data.filter(q=> q.route != id)
       <Related filteredData={filteredData}/>
 	</>
 </Layout>
-
-

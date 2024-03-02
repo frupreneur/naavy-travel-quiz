@@ -1,5 +1,5 @@
 ---
- import data from "../../db/visa"
+ import data from "../../db/database"
 const filteredData: typeof data = Astro.props.filteredData
 import QuizCard from "./QuizCard.astro"
 ---
@@ -10,4 +10,4 @@ import QuizCard from "./QuizCard.astro"
     <div class="divide-y divide-dashed">
       {filteredData.map(y=><QuizCard x={y} />)}
     </div>
-  </div> 
+  </div>

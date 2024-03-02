@@ -1,8 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import data from '../../../db/visa';
+import data from '../../../db/database';
 import Related from '../../components/Related.astro';
-import ADX from '../../components/ADX.astro';
+import Ad1 from '../../components/ads/Ad1.astro';
+import Ad2 from '../../components/ads/Ad2.astro';
+
 
 const id = Astro.url.pathname.slice(1, Astro.url.pathname.lastIndexOf("/"))
 const x = data.filter((x => x.route === id))[0]
@@ -21,25 +23,23 @@ const filteredData = data.filter(q=> q.route != id)
 
 
 <Layout title={q.question + " - " + x.title  }, description={x.description} >
-	<>
 	<h1 style={{ marginTop: "0 !important" }} class=" text-lg font-medium md:text-3xl">
 {  q.question }
      </h1>
-     <ADX id="ad1"/>
+     <Ad1 />
       <p class="intro">
 Please choose answer below        <br />
       </p>
       <div class="" id="answerContainer">
-        {q.answers.map((answer, i)=> <button id={answer}>{answer.toUpperCase()}</button>)}
+        {q.answers.map((answer, i)=> <a id={answer}><button>{answer.toUpperCase()}</button></a>)}
         <span class="hidden" id="correct" correct-answer={`${q.correct}`} next-page={`/${x.route}/${+path + 1}`} quiz-end={quizEnd} path-name={x.route}/>
       </div>
 
-      <div class="h-[100px]  text-primary  hidden" id="loader" >
-        <span class=" w-2 h-2 loader"></span>
+      <div class="h-[100px] text-primary hidden" id="loader" >
+        <span class="w-2 h-2 loader"></span>
         </div>  
-        <ADX id="ad2"/>
+        <Ad2 />
         <Related filteredData={filteredData}/>
-	</>
 </Layout>
 
 <script>
@@ -71,8 +71,6 @@ Please choose answer below        <br />
             window.location.href = nextPage  as string + `?r=${r}`;
         }
       }, 1000)
-
-       
     }))
 </script>
 

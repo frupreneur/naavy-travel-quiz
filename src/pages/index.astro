@@ -1,18 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import data from '../../db/visa'
+import data from '../../db/database'
 import QuizCard from "../components/QuizCard.astro"
+import Ad1 from '../components/ads/Ad1.astro';
 import ADX from '../components/ADX.astro';
 
 ---
 <Layout>
 	<>
 	<ADX id="ad1"/>
-
 	<div class="divide-y divide-dashed">
 		{data.map(x=><QuizCard x={x} />)}
 	</div>
 	</>
 </Layout>
-
-

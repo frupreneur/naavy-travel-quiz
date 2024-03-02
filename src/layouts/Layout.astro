@@ -2,13 +2,13 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ADX from '../components/ADX.astro';
+
 interface Props {
 	title?: string;
   description?: string;
   url?: string
 }
 let siteUrl = "naavy-travel-quiz-app.vercel.com"
-
 const { title="Naavy Travel Quiz", description="Embark on an unforgettable cross-border journey with our USA Canada travel services. Discover the best routes and visa requirements for seamless travel between these two captivating countries. Whether you're planning a road trip, seeking flight deals, or exploring top attractions, we've got you covered. From luxury tours to budget-friendly options, our expertly crafted itineraries cater to every traveler. Explore scenic camping spots, indulge in RV rentals, or opt for family-friendly adventures. Start your USA Canada adventure today!", url=siteUrl } = Astro.props;
 ---
 
@@ -41,15 +41,12 @@ const { title="Naavy Travel Quiz", description="Embark on an unforgettable cross
 			<Header />
             <div class="site-wrap prose" id="site-wrap prose lg:prose-xl">
             	<slot />
-              <ADX id="ad3"/>
+              <ADX id="ad3" />
             </div>
 			<Footer/>
 		</main>
-	
 	</body>
 </html>
-
-
 
 
 <style is:global>
@@ -152,7 +149,6 @@ header {
 h1 {
   font-size: 3rem;
   margin: 1rem 0 !important;
-  /* text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.2); */
 }
 
 nav {
@@ -165,7 +161,6 @@ nav {
   justify-content: space-between !important;
   align-items: center;
   width: 100%;
-  /* position: relative; */
   z-index: 100;
 }
 
@@ -189,7 +184,6 @@ nav a {
 .logo a {
   font-size: 1.5rem !important;
   font-weight: bold;
-  /* color: red */
 }
 .logoSpan {
   display: flex;
@@ -203,8 +197,6 @@ nav a {
 
 .menu-icon {
   color: white !important;
-  /* width: 50px;
-  aspect-ratio: 1; */
 }
 
 .menu-icon .fa-solid {
@@ -257,7 +249,6 @@ nav a {
 }
 
 .footer-menu a {
-  /* text-decoration: none; */
   color: white;
 }
 
@@ -285,8 +276,6 @@ nav a {
   border-radius: 0.5rem;
   text-align: center;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05);
-  /* transform: scale(0.98);
-  transition: transform 0.5s; */
   max-width: 800px;
 }
 
@@ -339,10 +328,7 @@ nav a {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  /* gap: 10px; */
-
   padding: 1rem;
-
   width: 100%;
 }
 
@@ -398,10 +384,6 @@ h2 {
   font-size: 1.5rem;
 }
 
-/* h2.title-container {
-  width: 100%;
-  max-width: 100%;
-} */
 
 .question-wrapper {
   width: 100%;
@@ -421,7 +403,6 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items:center; */
   gap: 1rem;
 }
 .questionContainer h3 {
@@ -790,9 +771,6 @@ article > p {
   main {
     padding-top: 50px;
     width: 100%;
-    /* display: flex;
-    align-items: center; */
-    /* justify-content: space-between; */
   }
   .intro {
     font-size: 1rem;
@@ -803,7 +781,6 @@ article > p {
   .logo a {
     font-size: 1.2rem !important;
     font-weight: bold !important;
-    /* color: red */
   }
   h1 {
     font-size: 1.2rem;

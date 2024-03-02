@@ -1,24 +1,27 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import data from '../../../db/visa'
+import data from '../../../db/database'
 import Related from '../../components/Related.astro';
+import Ad1 from '../../components/ads/Ad1.astro';
+import Ad2 from '../../components/ads/Ad2.astro';
 import ADX from '../../components/ADX.astro';
 
-const id = Astro.url.pathname.slice(1, Astro.url.pathname.lastIndexOf("/"))
 
+
+const id = Astro.url.pathname.slice(1, Astro.url.pathname.lastIndexOf("/"))
 const x = data.filter((x => x.route === id))[0]
 const r = Astro.url.searchParams.get('r')! || '';
 const t = x.questions.length
 const result = +r / t
 const filteredData = data.filter(q=> q.route != id)
-console.log(result)
+
 ---
 <Layout title={x.title}, description={x.description} >
 	<>
 	<h1 style={{ marginTop: "0 !important" }} class=" text-lg font-medium md:text-3xl">
 {  `Result: ${x.title}`
 }      </h1>
-        <ADX id="ad1"/>
+        <ADX id="ad1" />
         <p id="loading">Loading your results for {x.title}... </p>
 
         <div class="h-[100px] flex   text-primary  " id="loader" >
@@ -28,7 +31,7 @@ console.log(result)
           {(result < 0.5) && <p class="hidden text-primary" id="result">{x.low}</p>}
           {(result >= 0.5) && <p class="hidden text-primary" id="result">{x.high}</p>}
         </div>
-        <ADX id="ad2"/>
+        <ADX id="ad2" />
         <Related filteredData={filteredData}/>
 	</>
 </Layout>
