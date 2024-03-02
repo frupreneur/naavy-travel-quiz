@@ -5,12 +5,38 @@ import QuizCard from "../components/QuizCard.astro"
 import Ad1 from '../components/ads/Ad1.astro';
 import ADX from '../components/ADX.astro';
 
+// const errors = data.filter(x=> {
+// 	if(x.high){
+// 		return true
+// 	}
+// })
+
+
+// console.log(errors)
+// console.log(errors.length)
+
+
+// import fs from 'fs'
+// fs.writeFile('./test.json', JSON.stringify(errors), err => {
+//   if (err) {
+//     console.error(err);
+//   } else {
+//     // file written successfully
+//   }
+// });
+
+
+
+
 ---
 <Layout>
 	<>
 	<ADX id="ad1"/>
 	<div class="divide-y divide-dashed">
 		{data.map(x=><QuizCard x={x} />)}
+
+
+		<p>{"Total of " + data.length + " Travel Quizzes"}</p>
 	</div>
 	</>
 </Layout>

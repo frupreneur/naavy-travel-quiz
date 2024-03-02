@@ -32,7 +32,7 @@ Please choose answer below        <br />
       </p>
       <div class="" id="answerContainer">
         {q.answers.map((answer, i)=> <a id={answer}><button>{answer.toUpperCase()}</button></a>)}
-        <span class="hidden" id="correct" correct-answer={`${q.correct}`} next-page={`/${x.route}/${+path + 1}`} quiz-end={quizEnd} path-name={x.route}/>
+        <span class="hidden" id="correct" correct-answer={`${q.correctAnswer}`} next-page={`/${x.route}/${+path + 1}`} quiz-end={quizEnd} path-name={x.route}/>
       </div>
 
       <div class="h-[100px] text-primary hidden" id="loader" >
