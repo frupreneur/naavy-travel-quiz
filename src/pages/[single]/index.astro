@@ -1,28 +1,35 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import data from '../../../db/database'
-import Related from '../../components/Related.astro';
-import Ad1 from '../../components/ads/Ad1.astro';
-import Ad2 from '../../components/ads/Ad2.astro';
-import ADX from '../../components/ADX.astro';
+import Layout from "../../layouts/Layout.astro";
+import data from "../../../db/database";
+import Related from "../../components/Related.astro";
+import AdSense from "../../components/AdSense.astro";
 
-const id = Astro.url.pathname.slice(1)
-const x = data.filter((x => x.route === id))[0]
+const id = Astro.url.pathname.slice(1);
+const x = data.filter((x) => x.route === id)[0];
 
-const t = x.questions.length
-const filteredData = data.filter(q=> q.route != id)
+const t = x.questions.length;
+const filteredData = data.filter((q) => q.route != id);
 ---
-<Layout title={x.title}, description={x.description} >
+
+<Layout title={x.title} , description={x.description}>
 	<>
-	<h1 style={{ marginTop: "0 !important" }} class=" text-lg font-medium md:text-3xl">{x.title}</h1>
-      <ADX id="ad1"/>
-      <p class="intro">
-       {x.description}
-        <br />
-      </p>
-      <p class="m-1 font-bold text-primary">({t} questions)</p>
-      <a href={`/${x.route}/${1}?r=0`}  ><button>Get Started</button></a>
-      <ADX id="ad2"/>
-      <Related filteredData={filteredData}/>
+		<h1
+			style={{ marginTop: "0 !important" }}
+			class="text-lg font-medium md:text-3xl"
+		>
+			{x.title}
+		</h1>
+		<AdSense />
+
+		<p class="intro">
+			{x.description}
+			<br />
+		</p>
+		<p class="m-1 font-bold text-primary">({t} questions)</p>
+		<a href={`/${x.route}/${1}?r=0`}><button>Get Started</button></a>
+
+		<AdSense />
+
+		<Related filteredData={filteredData} />
 	</>
 </Layout>
