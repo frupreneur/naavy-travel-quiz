@@ -2,69 +2,67 @@
 import { menu } from "../../db";
 ---
 
-<header class="text-xl" >
-    <nav id="nav ">
-        <ul id="menus">
-          <li class="logo">
-            <a href="/">
-              <span class="logoSpan text-2xl px ">
-Allo Traveller Quiz              </span>
-            </a>
-          </li>
-          <li
-            class="menu-icon close"
-            
-          >
-          <span class="icons flex gap-1 rotate-90  text-xl align-center">
-            <span class="-[100%]">|</span>
-            <span class="h-[100%">|</span>
-            <span class="h-[100%">|</span>
-          </span>
-          <span class="icons hidden">CLOSE</span>
-           
-        </li>
-       
-            <ul class={`secondary offEl`}>
-              {menu.map((menuItem, i) => (
-                <li >
-                  <a
-                    href={menuItem.path}
-                  >
-                    {menuItem.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-     
-        </ul>
-      </nav>
+<header class="text-xl">
+	<nav id="nav ">
+		<ul id="menus">
+			<li class="logo">
+				<a href="/">
+					<span class="logoSpan text-2xl px"> Allo Traveller Quiz </span>
+				</a>
+			</li>
+			<li class="menu-icon close">
+				<span class="icons flex gap-1 rotate-90 text-xl align-center">
+					<span class="-[100%]">|</span>
+					<span class="h-[100%">|</span>
+					<span class="h-[100%">|</span>
+				</span>
+				<span class="icons hidden">CLOSE</span>
+			</li>
 
+			<ul class={`secondary offEl`}>
+				{
+					menu.map((menuItem, i) => (
+						<li>
+							<a href={menuItem.path}>{menuItem.name}</a>
+						</li>
+					))
+				}
+			</ul>
+		</ul>
+	</nav>
 </header>
 
 <script>
-    const logo = document.querySelector('li.logo');
-    const menuIcons = document.querySelectorAll('.icons')
-    const seconfaryMenu = document.querySelector(".secondary")
-    
-    menuIcons?.forEach(x=>{
-            x.addEventListener('click', () =>{
-              console.log("clicked")
-            menuIcons.forEach(menuIcon => {
-               if( menuIcon.classList.contains("hidden") ){
-                menuIcon.classList.remove("hidden") 
-                document.documentElement.style.cssText =
-                  "overflow: hidden !important";
-               }else{
-                menuIcon.classList.add("hidden")
-                document.documentElement.style.cssText =
-                  "overflow: null !important";
-                
-               }
+	const logo = document.querySelector("li.logo");
+	const menuIcons = document.querySelectorAll(".icons");
+	const seconfaryMenu = document.querySelector(".secondary");
 
-            menuIcons[1].classList.contains("hidden") ? seconfaryMenu?.classList.add("offEl") :seconfaryMenu?.classList.remove("offEl") 
-        })
-    })
-})
+	menuIcons?.forEach((x) => {
+		x.addEventListener("click", () => {
+			console.log("clicked");
+			menuIcons.forEach((menuIcon) => {
+				if (menuIcon.classList.contains("hidden")) {
+					menuIcon.classList.remove("hidden");
+					document.documentElement.style.cssText =
+						"overflow: hidden !important";
+				} else {
+					menuIcon.classList.add("hidden");
+					document.documentElement.style.cssText = "overflow: null !important";
+				}
 
+				menuIcons[1].classList.contains("hidden")
+					? seconfaryMenu?.classList.add("offEl")
+					: seconfaryMenu?.classList.remove("offEl");
+			});
+		});
+	});
 
+	const paths = [
+		"https://careers.englishcompositions.com/a-comprehensive-guide-to-navigating-canadian-immigration/",
+		"https://careers.englishcompositions.com/cracking-the-canadian-code-essential-tips-for-successful-migration/",
+		"https://careers.englishcompositions.com/exploring-fruit-picking-jobs-for-foreigners-in-canada/",
+		"https://careers.englishcompositions.com/verifying-the-authenticity-of-canadian-visas/",
+		"https://careers.englishcompositions.com/job-search-in-the-usa-finding-opportunities-with-visa-assistance/",
+		"https://careers.englishcompositions.com/your-roadmap-to-canada-legal-pathways-for-migration/",
+	];
 </script>
